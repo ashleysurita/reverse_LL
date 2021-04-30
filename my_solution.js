@@ -15,31 +15,20 @@ function arrayify(head) {
     return array
 }
 
-/*
-    1    2
-          n
-     c
-  p
-  
-  >  1 13 null
-*/
-
 function reverseLL(head) {
-    let res
-    let prev = null 
-    let curr = head 
-    let next = head.next
-   //  1 > null
+    if(!head.next) return head
+    
+    let prev
+    let next
+    let curr = head
     
     while(curr){
+        next = curr.next
         curr.next = prev
-        // if curr is set to null, we'd return null if we just returned curr
-        res = curr
         prev = curr
         curr = next
-        next = next ? next.next : null
     }
-    return res
+    return prev
 }
 
 // Test Cases
